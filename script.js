@@ -2,31 +2,57 @@
  * ═══════════════════════════════════════════════════════════
  * ROTEX EMPORIUM — script.js
  * Vanilla JS · Multi-Page · Persistent Cart · AI Concierge
+ * Backend: Supabase (products + order logging)
  * Flynn Technologies © 2025
  * ═══════════════════════════════════════════════════════════
  */
 'use strict';
+
+/* ── SUPABASE CONFIG ─────────────────────────────────────── */
+const SUPABASE_URL      = 'https://ftrqsvdfjxhjkwzxuntg.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_BvwznwMV1Y68_ZAekTmdrQ_OIRKWM1n';
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 /* ── CONFIG ──────────────────────────────────────────────── */
 const WA_NUMBER     = '254721696486'; // Replace with live number
 const CART_KEY      = 'rotex_cart';
 const IS_CATALOGUE  = document.body.classList.contains('page--catalogue');
 
-/* ── PRODUCT DATA ────────────────────────────────────────── */
-const PRODUCTS = [
-  { id:1,  name:'Midnight Slim Blazer',       category:'executive',  label:'Executive',  price:18500, tag:'New',       sizes:['S','M','L','XL'],              img:'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80&auto=format&fit=crop' },
-  { id:2,  name:'Obsidian Tailored Trousers', category:'executive',  label:'Executive',  price:12900, tag:null,        sizes:['28','30','32','34'],            img:'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80&auto=format&fit=crop' },
-  { id:3,  name:'Ivory Linen Button-Down',    category:'executive',  label:'Executive',  price:8400,  tag:'Exclusive', sizes:['S','M','L','XL'],              img:'https://images.unsplash.com/photo-1588359348347-9bc6cbbb689e?w=600&q=80&auto=format&fit=crop' },
-  { id:4,  name:'Noir Sculptured Overcoat',   category:'statement',  label:'Statement',  price:34000, tag:'New',       sizes:['S','M','L','XL'],              img:'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80&auto=format&fit=crop' },
-  { id:5,  name:'Crimson Structured Jacket',  category:'statement',  label:'Statement',  price:26500, tag:'New',       sizes:['XS','S','M','L'],              img:'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80&auto=format&fit=crop' },
-  { id:6,  name:'Velvet Column Dress',        category:'statement',  label:'Statement',  price:21000, tag:'Exclusive', sizes:['XS','S','M','L'],              img:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80&auto=format&fit=crop' },
-  { id:7,  name:'Heavyweight Cotton Tee',     category:'essentials', label:'Essentials', price:5800,  tag:null,        sizes:['S','M','L','XL','XXL'],        img:'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80&auto=format&fit=crop' },
-  { id:8,  name:'Raw Selvedge Denim',         category:'essentials', label:'Essentials', price:16500, tag:null,        sizes:['28','30','32','34','36'],       img:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80&auto=format&fit=crop' },
-  { id:9,  name:'Monochrome Matching Set',    category:'essentials', label:'Essentials', price:14200, tag:'New',       sizes:['S','M','L','XL'],              img:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80&auto=format&fit=crop' },
-  { id:10, name:'Burnished Leather Loafers',  category:'finishing',  label:'Finishing',  price:22000, tag:'New',       sizes:['39','40','41','42','43','44'], img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80&auto=format&fit=crop' },
-  { id:11, name:'Full-Grain Leather Belt',    category:'finishing',  label:'Finishing',  price:7200,  tag:null,        sizes:['S/M','L/XL'],                  img:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80&auto=format&fit=crop' },
-  { id:12, name:'Artisan Structured Tote',    category:'finishing',  label:'Finishing',  price:19800, tag:'Exclusive', sizes:['One Size'],                    img:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80&auto=format&fit=crop' },
-];
+/* ── PRODUCT DATA (fetched from Supabase) ───────────────── */
+let PRODUCTS = [];
+
+const fetchProducts = async () => {
+  const { data, error } = await supabase
+    .from('products')
+    .select('*')
+    .eq('active', true)
+    .order('created_at', { ascending: true });
+
+  if (error) {
+    console.error('Failed to fetch products:', error);
+    PRODUCTS = [];
+    return;
+  }
+
+  // Map Supabase rows to the field names the rest of script.js expects
+  const labelFor = (cat) => ({
+    executive:  'Executive',
+    statement:  'Statement',
+    essentials: 'Essentials',
+    finishing:  'Finishing',
+  }[cat] || cat);
+
+  PRODUCTS = (data || []).map(row => ({
+    id:       row.id,
+    name:     row.name,
+    category: row.category,
+    label:    labelFor(row.category),
+    price:    row.price,
+    tag:      row.tag,
+    sizes:    row.sizes || [],
+    img:      row.image_url,
+  }));
+};
 
 /* ── CONCIERGE KNOWLEDGE BASE (pattern → response) ──────── */
 const KB = [
@@ -138,10 +164,9 @@ const renderCart = () => {
   list.querySelectorAll('[data-action]').forEach(el =>
     el.addEventListener('click', e => {
       const { action, id, size } = e.currentTarget.dataset;
-      const numId = +id;
-      if (action === 'remove') { state.cart = state.cart.filter(i => !(i.id === numId && i.size === size)); toast('Item removed.'); }
+      if (action === 'remove') { state.cart = state.cart.filter(i => !(i.id === id && i.size === size)); toast('Item removed.'); }
       else {
-        const idx = state.cart.findIndex(i => i.id === numId && i.size === size);
+        const idx = state.cart.findIndex(i => i.id === id && i.size === size);
         if (idx > -1) { state.cart[idx].qty += action === 'inc' ? 1 : -1; if (state.cart[idx].qty <= 0) state.cart.splice(idx, 1); }
       }
       saveCart(); renderCart(); syncBadges();
@@ -166,8 +191,26 @@ const openCheckout = () => {
 };
 const closeCheckout = () => { state.checkoutOpen = false; $('checkoutOverlay')?.classList.remove('active'); $('checkoutOverlay')?.setAttribute('aria-hidden','true'); document.body.style.overflow=''; };
 
+/* ── ORDER LOGGING (Supabase) — never blocks WhatsApp send ─ */
+const logOrderToSupabase = async ({ name, phone, loc, note }) => {
+  try {
+    const { error } = await supabase.from('orders').insert({
+      customer_name: name,
+      phone,
+      location: loc,
+      notes: note || null,
+      items: state.cart,
+      total: cartTotal(),
+      status: 'new',
+    });
+    if (error) console.error('Order log failed:', error);
+  } catch (e) {
+    console.error('Order log failed:', e);
+  }
+};
+
 /* ── WHATSAPP ORDER ──────────────────────────────────────── */
-const sendOrder = () => {
+const sendOrder = async () => {
   const name = $('customerName')?.value.trim();
   const loc  = $('customerLocation')?.value.trim();
   const ph   = $('customerPhone')?.value.trim();
@@ -176,6 +219,12 @@ const sendOrder = () => {
   if (!loc  || loc.length < 3)              return toast('Please enter your delivery location.');
   if (!ph   || !/^[0-9+\s\-(]{7,15}$/.test(ph)) return toast('Please enter a valid phone number.');
   if (!state.cart.length)                   return toast('Your cart is empty.');
+
+  const btn = $('sendWhatsAppBtn');
+  if (btn) btn.disabled = true;
+
+  // Log to Supabase first, but never let a failure block the WhatsApp handoff
+  await logOrderToSupabase({ name, phone: ph, loc, note });
 
   const lines = state.cart.map(i => `▸ ${i.name}\n   Size: ${i.size}  |  Qty: ${i.qty}  |  ${kes(i.price * i.qty)}`).join('\n');
   const msg = encodeURIComponent([
@@ -189,6 +238,7 @@ const sendOrder = () => {
   window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank', 'noopener,noreferrer');
   closeCheckout();
   toast('Redirecting to WhatsApp 🎉', 'success');
+  if (btn) btn.disabled = false;
   setTimeout(() => {
     state.cart = []; saveCart(); renderCart(); syncBadges();
     ['customerName','customerLocation','customerPhone','customerNotes'].forEach(id => { const el=$(id); if(el) el.value=''; });
@@ -242,7 +292,10 @@ const buildTracks = () => {
   ['executive','statement','essentials','finishing'].forEach(cat => {
     const track = $(`track-${cat}`);
     if (!track) return;
-    track.innerHTML = PRODUCTS.filter(p => p.category === cat).map(p => cardHTML(p, true)).join('');
+    const items = PRODUCTS.filter(p => p.category === cat);
+    track.innerHTML = items.length
+      ? items.map(p => cardHTML(p, true)).join('')
+      : `<p class="track-empty">No pieces available in this collection right now.</p>`;
     bindCards(track);
   });
 };
@@ -334,7 +387,7 @@ const bindCards = (container) => {
   container.querySelectorAll('.btn--add-cart').forEach(btn =>
     btn.addEventListener('click', e => {
       const b     = e.currentTarget;
-      const id    = +b.dataset.id;
+      const id    = b.dataset.id;
       const name  = b.dataset.name;
       const price = +b.dataset.price;
       const size  = b.closest('.product-card')?.querySelector('.size-btn.active')?.dataset.size;
@@ -389,7 +442,7 @@ const bindSharedEvents = () => {
 };
 
 /* ── INIT ────────────────────────────────────────────────── */
-const init = () => {
+const init = async () => {
   loadCart();
   renderCart();
   syncBadges();
@@ -397,6 +450,7 @@ const init = () => {
   bindSharedEvents();
 
   if (IS_CATALOGUE) {
+    await fetchProducts();
     buildTracks();
     initChips();
     initTrackArrows();

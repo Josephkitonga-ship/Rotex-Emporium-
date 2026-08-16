@@ -57,6 +57,7 @@ input,textarea { font-family:inherit; font-size:inherit; }
 .btn--whatsapp:hover { background:#1faf55; transform:translateY(-1px); box-shadow:0 6px 20px rgba(37,211,102,.3); }
 .btn--sm   { padding:8px 16px; font-size:.7rem; }
 .btn--full { width:100%; }
+.btn:disabled { opacity:.6; cursor:not-allowed; transform:none !important; box-shadow:none !important; }
 
 /* ── ICON BUTTON ─────────────────────────────────────────── */
 .icon-btn { display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:var(--r-sm); color:var(--silver); transition:color var(--t-fast),background var(--t-fast); }
@@ -325,6 +326,7 @@ input,textarea { font-family:inherit; font-size:inherit; }
 .track-arrow:hover { background:var(--crimson); border-color:var(--crimson); transform:translateY(-60%) scale(1.08); }
 .track-arrow--prev { left:4px; } .track-arrow--next { right:4px; }
 .track-arrow.hidden { opacity:0; pointer-events:none; }
+.track-empty { padding:32px 16px; font-size:.8rem; color:var(--silver-dim); }
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media (min-width: 560px) {
