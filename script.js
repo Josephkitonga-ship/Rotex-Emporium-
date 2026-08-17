@@ -11,7 +11,7 @@
 /* ── SUPABASE CONFIG ─────────────────────────────────────── */
 const SUPABASE_URL      = 'https://ftrqsvdfjxhjkwzxuntg.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_BvwznwMV1Y68_ZAekTmdrQ_OIRKWM1n';
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const db = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
 /* ── CONFIG ──────────────────────────────────────────────── */
 const WA_NUMBER     = '254721696486'; // Replace with live number
@@ -22,7 +22,8 @@ const IS_CATALOGUE  = document.body.classList.contains('page--catalogue');
 let PRODUCTS = [];
 
 const fetchProducts = async () => {
-  const { data, error } = await supabase
+  if (!db) { console.error('Supabase client unavailable — check network/CDN.'); PRODUCTS = []; return; }
+  const { data, error } = await db
     .from('products')
     .select('*')
     .eq('active', true)
@@ -193,8 +194,9 @@ const closeCheckout = () => { state.checkoutOpen = false; $('checkoutOverlay')?.
 
 /* ── ORDER LOGGING (Supabase) — never blocks WhatsApp send ─ */
 const logOrderToSupabase = async ({ name, phone, loc, note }) => {
+  if (!db) { console.error('Supabase client unavailable — order not logged, WhatsApp send continues.'); return; }
   try {
-    const { error } = await supabase.from('orders').insert({
+    const { error } = await db.from('orders').insert({
       customer_name: name,
       phone,
       location: loc,

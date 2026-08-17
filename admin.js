@@ -11,7 +11,13 @@
 /* ── SUPABASE CONFIG ─────────────────────────────────────── */
 const SUPABASE_URL      = 'https://ftrqsvdfjxhjkwzxuntg.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_BvwznwMV1Y68_ZAekTmdrQ_OIRKWM1n';
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const db = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+if (!db) {
+  document.addEventListener('DOMContentLoaded', () => {
+    const err = document.getElementById('loginError');
+    if (err) err.textContent = 'Failed to load backend connection. Check your internet and refresh.';
+  });
+}
 
 /* ── DOM HELPERS ─────────────────────────────────────────── */
 const $ = (id) => document.getElementById(id);
@@ -42,7 +48,7 @@ const showLogin = () => {
 };
 
 const checkSession = async () => {
-  const { data: { session } } = await supabase.auth.getSession();
+  const { data: { session } } = await db.auth.getSession();
   session ? showApp() : showLogin();
 };
 
@@ -56,7 +62,7 @@ $('loginForm')?.addEventListener('submit', async (e) => {
   btn.disabled = true;
   btn.textContent = 'Signing in…';
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  const { error } = await db.auth.signInWithPassword({ email, password });
 
   btn.disabled = false;
   btn.textContent = 'Sign In';
@@ -69,7 +75,7 @@ $('loginForm')?.addEventListener('submit', async (e) => {
 });
 
 $('logoutBtn')?.addEventListener('click', async () => {
-  await supabase.auth.signOut();
+  await db.auth.signOut();
   showLogin();
 });
 
@@ -93,7 +99,7 @@ const loadProducts = async () => {
   const tbody = $('productsTableBody');
   tbody.innerHTML = `<tr><td colspan="8" class="admin-table-empty">Loading products…</td></tr>`;
 
-  const { data, error } = await supabase
+  const { data, error } = await db
     .from('products')
     .select('*')
     .order('created_at', { ascending: true });
@@ -145,7 +151,7 @@ const loadProducts = async () => {
 
 /* ── PRODUCTS: TOGGLE ACTIVE ─────────────────────────────── */
 const toggleActive = async (id, currentActive) => {
-  const { error } = await supabase.from('products').update({ active: !currentActive }).eq('id', id);
+  const { error } = await db.from('products').update({ active: !currentActive }).eq('id', id);
   if (error) { toast('Failed to update product.'); console.error(error); return; }
   toast(currentActive ? 'Product hidden from storefront.' : 'Product is now live.', 'success');
   loadProducts();
@@ -154,7 +160,7 @@ const toggleActive = async (id, currentActive) => {
 /* ── PRODUCTS: DELETE ─────────────────────────────────────── */
 const deleteProduct = async (id) => {
   if (!confirm('Delete this product permanently? This cannot be undone.')) return;
-  const { error } = await supabase.from('products').delete().eq('id', id);
+  const { error } = await db.from('products').delete().eq('id', id);
   if (error) { toast('Failed to delete product.'); console.error(error); return; }
   toast('Product deleted.', 'success');
   loadProducts();
@@ -210,8 +216,8 @@ $('productForm')?.addEventListener('submit', async (e) => {
 
   const payload = { name, category, price, sizes, tag, image_url, active };
   const { error } = id
-    ? await supabase.from('products').update(payload).eq('id', id)
-    : await supabase.from('products').insert(payload);
+    ? await db.from('products').update(payload).eq('id', id)
+    : await db.from('products').insert(payload);
 
   btn.disabled = false;
   btn.textContent = 'Save Product';
@@ -234,7 +240,7 @@ const loadOrders = async () => {
   const tbody = $('ordersTableBody');
   tbody.innerHTML = `<tr><td colspan="7" class="admin-table-empty">Loading orders…</td></tr>`;
 
-  const { data, error } = await supabase
+  const { data, error } = await db
     .from('orders')
     .select('*')
     .order('created_at', { ascending: false });
@@ -276,7 +282,7 @@ const loadOrders = async () => {
 
 /* ── ORDERS: UPDATE STATUS ───────────────────────────────── */
 const updateOrderStatus = async (id, status) => {
-  const { error } = await supabase.from('orders').update({ status }).eq('id', id);
+  const { error } = await db.from('orders').update({ status }).eq('id', id);
   if (error) { toast('Failed to update order status.'); console.error(error); return; }
   toast('Order status updated.', 'success');
 };
@@ -287,6 +293,6 @@ $('refreshOrdersBtn')?.addEventListener('click', loadOrders);
 checkSession();
 
 // Keep session in sync if it changes in another tab
-supabase.auth.onAuthStateChange((_event, session) => {
+db.auth.onAuthStateChange((_event, session) => {
   session ? showApp() : showLogin();
 });
