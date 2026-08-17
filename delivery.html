@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Rotex Emporium — Browse our four luxury pillars. Shop Executive, Statement, Essentials, and Finishing Touches." />
+  <meta name="description" content="Rotex Emporium — Delivery areas, timelines, and costs across Kenya." />
   <meta name="theme-color" content="#0D0D0D" />
-  <title>Catalogue — Rotex Emporium</title>
+  <title>Delivery Info — Rotex Emporium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="page--catalogue">
+<body>
 
   <!-- ── HEADER ─────────────────────────────────────────────── -->
   <header class="site-header" id="siteHeader">
@@ -25,7 +25,7 @@
       </a>
       <nav class="header-nav" aria-label="Primary">
         <a href="index.html#hero"  class="nav-link">Maison</a>
-        <a href="catalogue.html"   class="nav-link nav-link--active">Collections</a>
+        <a href="catalogue.html"   class="nav-link">Collections</a>
         <a href="#"                class="nav-link" id="headerSupportBtn">Help</a>
       </nav>
       <button class="header-cart-btn" id="headerCartBtn" aria-label="Open cart">
@@ -35,141 +35,59 @@
     </div>
   </header>
 
-  <!-- ── CATALOGUE HERO (compact) ──────────────────────────── -->
-  <section class="cat-hero" aria-label="Catalogue Introduction">
-    <div class="cat-hero-bg" aria-hidden="true">
-      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80&auto=format&fit=crop" alt="" loading="eager" fetchpriority="high" />
-      <div class="cat-hero-overlay"></div>
-    </div>
-    <div class="cat-hero-content">
-      <p class="eyebrow gold">The 2025 Edit</p>
-      <h1 class="cat-hero-title">
-        <span class="cat-hero-title-main">THE</span>
-        <span class="cat-hero-title-sub">Collection</span>
-      </h1>
-      <p class="cat-hero-desc">Four curated pillars of luxury for Nairobi's most discerning. Scroll to explore.</p>
-    </div>
-    <div class="cat-hero-stats" aria-label="Collection statistics">
-      <div class="cat-stat"><span class="cat-stat-num">12</span><span class="cat-stat-label">Pieces</span></div>
-      <div class="cat-stat-divider" aria-hidden="true"></div>
-      <div class="cat-stat"><span class="cat-stat-num">4</span><span class="cat-stat-label">Pillars</span></div>
-      <div class="cat-stat-divider" aria-hidden="true"></div>
-      <div class="cat-stat"><span class="cat-stat-num">100%</span><span class="cat-stat-label">Authentic</span></div>
+  <!-- ── INFO PAGE HERO ─────────────────────────────────────── -->
+  <section class="info-hero">
+    <div class="info-hero-content">
+      <p class="eyebrow gold">Getting Your Order to You</p>
+      <h1 class="info-hero-title">Delivery Info</h1>
+      <p class="info-hero-desc">Straightforward delivery across Kenya, tracked from dispatch to doorstep.</p>
     </div>
   </section>
 
-  <!-- ── STICKY CATEGORY CHIP NAV ──────────────────────────── -->
-  <nav class="cat-nav" id="categoryNavScroll" aria-label="Jump to collection">
-    <div class="cat-nav-track">
-      <button class="cat-chip cat-chip--active" data-target="section-executive" aria-pressed="true">
-        <span class="chip-dot" aria-hidden="true"></span>Executive
-      </button>
-      <button class="cat-chip" data-target="section-statement" aria-pressed="false">
-        <span class="chip-dot" aria-hidden="true"></span>Statement
-      </button>
-      <button class="cat-chip" data-target="section-essentials" aria-pressed="false">
-        <span class="chip-dot" aria-hidden="true"></span>Essentials
-      </button>
-      <button class="cat-chip" data-target="section-finishing" aria-pressed="false">
-        <span class="chip-dot" aria-hidden="true"></span>Finishing
-      </button>
+  <!-- ── INFO CONTENT ────────────────────────────────────────── -->
+  <main class="info-main">
+
+    <div class="info-grid">
+      <article class="info-card">
+        <div class="info-card-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h13v13H3z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="17.5" cy="18.5" r="1.5"/></svg>
+        </div>
+        <h3 class="info-card-title">Nairobi</h3>
+        <p class="info-card-body">1–2 business days. Same-day delivery available for orders confirmed before noon, subject to rider availability.</p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-card-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3 class="info-card-title">Rest of Kenya</h3>
+        <p class="info-card-body">2–4 business days via courier partner, including Oloitokitok and the greater Kajiado region. Tracking details sent on dispatch.</p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-card-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3 class="info-card-title">Delivery Cost</h3>
+        <p class="info-card-body">Free delivery within Nairobi. Countrywide rates are calculated at checkout confirmation on WhatsApp, based on your location.</p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-card-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h3 class="info-card-title">Order Tracking</h3>
+        <p class="info-card-body">Every order is confirmed and tracked directly over WhatsApp — the same chat you check out with is where you'll get updates.</p>
+      </article>
     </div>
-  </nav>
 
-  <!-- ── MAIN CATALOGUE ─────────────────────────────────────── -->
-  <main class="catalogue-main" aria-label="Product Catalogue">
-
-    <!-- 01 Executive & Smart-Casual -->
-    <section class="pillar-section" id="section-executive" aria-labelledby="title-executive">
-      <div class="pillar-header">
-        <div class="pillar-header-left">
-          <span class="pillar-num" aria-hidden="true">01</span>
-          <div>
-            <p class="eyebrow crimson">Executive &amp; Smart-Casual</p>
-            <h2 class="section-title" id="title-executive">Tailored Precision</h2>
-          </div>
-        </div>
-        <p class="pillar-desc">Sharp blazers, tailored trousers, and versatile button-downs that move from boardroom to evening with ease.</p>
+    <div class="info-note">
+      <p>Questions about a specific delivery? Our concierge can help, or reach us directly on WhatsApp.</p>
+      <div class="info-note-ctas">
+        <button class="btn btn--ghost" id="deliveryConciergeBtn">Ask the Concierge</button>
+        <a href="https://wa.me/254721696486?text=Hi%2C%20I%20have%20a%20question%20about%20delivery." class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
       </div>
-      <div class="product-track-wrap">
-        <div class="product-track" id="track-executive" role="list" aria-label="Executive products"></div>
-        <button class="track-arrow track-arrow--prev" data-track="track-executive" aria-label="Scroll left">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="track-arrow track-arrow--next" data-track="track-executive" aria-label="Scroll right">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-    </section>
-
-    <!-- 02 Statement Pieces -->
-    <section class="pillar-section" id="section-statement" aria-labelledby="title-statement">
-      <div class="pillar-header">
-        <div class="pillar-header-left">
-          <span class="pillar-num" aria-hidden="true">02</span>
-          <div>
-            <p class="eyebrow crimson">Signature Statement Pieces</p>
-            <h2 class="section-title" id="title-statement">The Hero Tier</h2>
-          </div>
-        </div>
-        <p class="pillar-desc">Distinctive outerwear, structured jackets, and high-fashion dresses designed to command a room.</p>
-      </div>
-      <div class="product-track-wrap">
-        <div class="product-track" id="track-statement" role="list" aria-label="Statement products"></div>
-        <button class="track-arrow track-arrow--prev" data-track="track-statement" aria-label="Scroll left">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="track-arrow track-arrow--next" data-track="track-statement" aria-label="Scroll right">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-    </section>
-
-    <!-- 03 Premium Essentials -->
-    <section class="pillar-section" id="section-essentials" aria-labelledby="title-essentials">
-      <div class="pillar-header">
-        <div class="pillar-header-left">
-          <span class="pillar-num" aria-hidden="true">03</span>
-          <div>
-            <p class="eyebrow crimson">Premium Essentials</p>
-            <h2 class="section-title" id="title-essentials">The Foundation</h2>
-          </div>
-        </div>
-        <p class="pillar-desc">Heavy-ounce cotton tees, raw selvedge denim, and luxury matching sets — the considered wardrobe's core.</p>
-      </div>
-      <div class="product-track-wrap">
-        <div class="product-track" id="track-essentials" role="list" aria-label="Essentials products"></div>
-        <button class="track-arrow track-arrow--prev" data-track="track-essentials" aria-label="Scroll left">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="track-arrow track-arrow--next" data-track="track-essentials" aria-label="Scroll right">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-    </section>
-
-    <!-- 04 Finishing Touches -->
-    <section class="pillar-section" id="section-finishing" aria-labelledby="title-finishing">
-      <div class="pillar-header">
-        <div class="pillar-header-left">
-          <span class="pillar-num" aria-hidden="true">04</span>
-          <div>
-            <p class="eyebrow crimson">Finishing Touches</p>
-            <h2 class="section-title" id="title-finishing">Complete the Look</h2>
-          </div>
-        </div>
-        <p class="pillar-desc">Burnished leather loafers, full-grain belts, and artisanal totes — the final 20% that makes the outfit unforgettable.</p>
-      </div>
-      <div class="product-track-wrap">
-        <div class="product-track" id="track-finishing" role="list" aria-label="Finishing products"></div>
-        <button class="track-arrow track-arrow--prev" data-track="track-finishing" aria-label="Scroll left">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="track-arrow track-arrow--next" data-track="track-finishing" aria-label="Scroll right">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-    </section>
+    </div>
 
   </main>
 
@@ -186,8 +104,8 @@
         <p class="footer-tagline">Ultra-Premium Fashion. Nairobi, Kenya.</p>
       </div>
       <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="delivery.html">Delivery Info</a>
+        <a href="catalogue.html">Shop All</a>
+        <a href="delivery.html" class="nav-link--active">Delivery Info</a>
         <a href="size-guide.html">Size Guide</a>
         <a href="#" id="footerReturnsBtn">Returns</a>
         <a href="#" id="footerSupportBtn">Concierge</a>
@@ -302,7 +220,7 @@
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <span>Home</span>
     </a>
-    <a href="catalogue.html" class="bottom-nav-item active" aria-label="Collections">
+    <a href="catalogue.html" class="bottom-nav-item" aria-label="Collections">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       <span>Collections</span>
     </a>
@@ -321,5 +239,10 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="script.js"></script>
+  <script>
+    document.getElementById('deliveryConciergeBtn')?.addEventListener('click', () => {
+      document.getElementById('fabSupportBtn')?.click();
+    });
+  </script>
 </body>
 </html>

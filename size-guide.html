@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Rotex Emporium — Browse our four luxury pillars. Shop Executive, Statement, Essentials, and Finishing Touches." />
+  <meta name="description" content="Rotex Emporium — Size guide for clothing, denim, and footwear." />
   <meta name="theme-color" content="#0D0D0D" />
-  <title>Catalogue — Rotex Emporium</title>
+  <title>Size Guide — Rotex Emporium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="page--catalogue">
+<body>
 
   <!-- ── HEADER ─────────────────────────────────────────────── -->
   <header class="site-header" id="siteHeader">
@@ -25,7 +25,7 @@
       </a>
       <nav class="header-nav" aria-label="Primary">
         <a href="index.html#hero"  class="nav-link">Maison</a>
-        <a href="catalogue.html"   class="nav-link nav-link--active">Collections</a>
+        <a href="catalogue.html"   class="nav-link">Collections</a>
         <a href="#"                class="nav-link" id="headerSupportBtn">Help</a>
       </nav>
       <button class="header-cart-btn" id="headerCartBtn" aria-label="Open cart">
@@ -35,141 +35,75 @@
     </div>
   </header>
 
-  <!-- ── CATALOGUE HERO (compact) ──────────────────────────── -->
-  <section class="cat-hero" aria-label="Catalogue Introduction">
-    <div class="cat-hero-bg" aria-hidden="true">
-      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80&auto=format&fit=crop" alt="" loading="eager" fetchpriority="high" />
-      <div class="cat-hero-overlay"></div>
-    </div>
-    <div class="cat-hero-content">
-      <p class="eyebrow gold">The 2025 Edit</p>
-      <h1 class="cat-hero-title">
-        <span class="cat-hero-title-main">THE</span>
-        <span class="cat-hero-title-sub">Collection</span>
-      </h1>
-      <p class="cat-hero-desc">Four curated pillars of luxury for Nairobi's most discerning. Scroll to explore.</p>
-    </div>
-    <div class="cat-hero-stats" aria-label="Collection statistics">
-      <div class="cat-stat"><span class="cat-stat-num">12</span><span class="cat-stat-label">Pieces</span></div>
-      <div class="cat-stat-divider" aria-hidden="true"></div>
-      <div class="cat-stat"><span class="cat-stat-num">4</span><span class="cat-stat-label">Pillars</span></div>
-      <div class="cat-stat-divider" aria-hidden="true"></div>
-      <div class="cat-stat"><span class="cat-stat-num">100%</span><span class="cat-stat-label">Authentic</span></div>
+  <!-- ── INFO PAGE HERO ─────────────────────────────────────── -->
+  <section class="info-hero">
+    <div class="info-hero-content">
+      <p class="eyebrow gold">Fit With Confidence</p>
+      <h1 class="info-hero-title">Size Guide</h1>
+      <p class="info-hero-desc">Every piece is cut true-to-size. Use the charts below, or size up for a relaxed fit.</p>
     </div>
   </section>
 
-  <!-- ── STICKY CATEGORY CHIP NAV ──────────────────────────── -->
-  <nav class="cat-nav" id="categoryNavScroll" aria-label="Jump to collection">
-    <div class="cat-nav-track">
-      <button class="cat-chip cat-chip--active" data-target="section-executive" aria-pressed="true">
-        <span class="chip-dot" aria-hidden="true"></span>Executive
-      </button>
-      <button class="cat-chip" data-target="section-statement" aria-pressed="false">
-        <span class="chip-dot" aria-hidden="true"></span>Statement
-      </button>
-      <button class="cat-chip" data-target="section-essentials" aria-pressed="false">
-        <span class="chip-dot" aria-hidden="true"></span>Essentials
-      </button>
-      <button class="cat-chip" data-target="section-finishing" aria-pressed="false">
-        <span class="chip-dot" aria-hidden="true"></span>Finishing
-      </button>
+  <!-- ── INFO CONTENT ────────────────────────────────────────── -->
+  <main class="info-main">
+
+    <div class="size-table-wrap">
+      <h2 class="size-table-title">Clothing — Tops, Blazers, Dresses</h2>
+      <table class="size-table">
+        <thead>
+          <tr><th>Size</th><th>Chest / Bust (cm)</th><th>Waist (cm)</th><th>Hip (cm)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>XS</td><td>82–86</td><td>64–68</td><td>88–92</td></tr>
+          <tr><td>S</td><td>87–91</td><td>69–73</td><td>93–97</td></tr>
+          <tr><td>M</td><td>92–97</td><td>74–79</td><td>98–103</td></tr>
+          <tr><td>L</td><td>98–104</td><td>80–86</td><td>104–110</td></tr>
+          <tr><td>XL</td><td>105–112</td><td>87–94</td><td>111–118</td></tr>
+          <tr><td>XXL</td><td>113–120</td><td>95–102</td><td>119–126</td></tr>
+        </tbody>
+      </table>
     </div>
-  </nav>
 
-  <!-- ── MAIN CATALOGUE ─────────────────────────────────────── -->
-  <main class="catalogue-main" aria-label="Product Catalogue">
+    <div class="size-table-wrap">
+      <h2 class="size-table-title">Trousers &amp; Denim</h2>
+      <table class="size-table">
+        <thead>
+          <tr><th>Waist (in)</th><th>Waist (cm)</th><th>Inseam (cm)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>28</td><td>71</td><td>78</td></tr>
+          <tr><td>30</td><td>76</td><td>79</td></tr>
+          <tr><td>32</td><td>81</td><td>80</td></tr>
+          <tr><td>34</td><td>86</td><td>81</td></tr>
+          <tr><td>36</td><td>91</td><td>82</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-    <!-- 01 Executive & Smart-Casual -->
-    <section class="pillar-section" id="section-executive" aria-labelledby="title-executive">
-      <div class="pillar-header">
-        <div class="pillar-header-left">
-          <span class="pillar-num" aria-hidden="true">01</span>
-          <div>
-            <p class="eyebrow crimson">Executive &amp; Smart-Casual</p>
-            <h2 class="section-title" id="title-executive">Tailored Precision</h2>
-          </div>
-        </div>
-        <p class="pillar-desc">Sharp blazers, tailored trousers, and versatile button-downs that move from boardroom to evening with ease.</p>
-      </div>
-      <div class="product-track-wrap">
-        <div class="product-track" id="track-executive" role="list" aria-label="Executive products"></div>
-        <button class="track-arrow track-arrow--prev" data-track="track-executive" aria-label="Scroll left">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="track-arrow track-arrow--next" data-track="track-executive" aria-label="Scroll right">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-    </section>
+    <div class="size-table-wrap">
+      <h2 class="size-table-title">Footwear</h2>
+      <table class="size-table">
+        <thead>
+          <tr><th>EU</th><th>UK</th><th>US</th><th>Foot Length (cm)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>39</td><td>6</td><td>7</td><td>24.5</td></tr>
+          <tr><td>40</td><td>6.5</td><td>7.5</td><td>25.1</td></tr>
+          <tr><td>41</td><td>7.5</td><td>8.5</td><td>25.8</td></tr>
+          <tr><td>42</td><td>8</td><td>9</td><td>26.4</td></tr>
+          <tr><td>43</td><td>9</td><td>10</td><td>27.1</td></tr>
+          <tr><td>44</td><td>9.5</td><td>10.5</td><td>27.8</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-    <!-- 02 Statement Pieces -->
-    <section class="pillar-section" id="section-statement" aria-labelledby="title-statement">
-      <div class="pillar-header">
-        <div class="pillar-header-left">
-          <span class="pillar-num" aria-hidden="true">02</span>
-          <div>
-            <p class="eyebrow crimson">Signature Statement Pieces</p>
-            <h2 class="section-title" id="title-statement">The Hero Tier</h2>
-          </div>
-        </div>
-        <p class="pillar-desc">Distinctive outerwear, structured jackets, and high-fashion dresses designed to command a room.</p>
+    <div class="info-note">
+      <p>Between sizes, or unsure how a specific piece fits? Ask the concierge for guidance before you order.</p>
+      <div class="info-note-ctas">
+        <button class="btn btn--ghost" id="sizeConciergeBtn">Ask the Concierge</button>
+        <a href="catalogue.html" class="btn btn--primary">Browse the Collection</a>
       </div>
-      <div class="product-track-wrap">
-        <div class="product-track" id="track-statement" role="list" aria-label="Statement products"></div>
-        <button class="track-arrow track-arrow--prev" data-track="track-statement" aria-label="Scroll left">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="track-arrow track-arrow--next" data-track="track-statement" aria-label="Scroll right">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-    </section>
-
-    <!-- 03 Premium Essentials -->
-    <section class="pillar-section" id="section-essentials" aria-labelledby="title-essentials">
-      <div class="pillar-header">
-        <div class="pillar-header-left">
-          <span class="pillar-num" aria-hidden="true">03</span>
-          <div>
-            <p class="eyebrow crimson">Premium Essentials</p>
-            <h2 class="section-title" id="title-essentials">The Foundation</h2>
-          </div>
-        </div>
-        <p class="pillar-desc">Heavy-ounce cotton tees, raw selvedge denim, and luxury matching sets — the considered wardrobe's core.</p>
-      </div>
-      <div class="product-track-wrap">
-        <div class="product-track" id="track-essentials" role="list" aria-label="Essentials products"></div>
-        <button class="track-arrow track-arrow--prev" data-track="track-essentials" aria-label="Scroll left">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="track-arrow track-arrow--next" data-track="track-essentials" aria-label="Scroll right">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-    </section>
-
-    <!-- 04 Finishing Touches -->
-    <section class="pillar-section" id="section-finishing" aria-labelledby="title-finishing">
-      <div class="pillar-header">
-        <div class="pillar-header-left">
-          <span class="pillar-num" aria-hidden="true">04</span>
-          <div>
-            <p class="eyebrow crimson">Finishing Touches</p>
-            <h2 class="section-title" id="title-finishing">Complete the Look</h2>
-          </div>
-        </div>
-        <p class="pillar-desc">Burnished leather loafers, full-grain belts, and artisanal totes — the final 20% that makes the outfit unforgettable.</p>
-      </div>
-      <div class="product-track-wrap">
-        <div class="product-track" id="track-finishing" role="list" aria-label="Finishing products"></div>
-        <button class="track-arrow track-arrow--prev" data-track="track-finishing" aria-label="Scroll left">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="track-arrow track-arrow--next" data-track="track-finishing" aria-label="Scroll right">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-    </section>
+    </div>
 
   </main>
 
@@ -186,9 +120,9 @@
         <p class="footer-tagline">Ultra-Premium Fashion. Nairobi, Kenya.</p>
       </div>
       <div class="footer-links">
-        <a href="index.html">Home</a>
+        <a href="catalogue.html">Shop All</a>
         <a href="delivery.html">Delivery Info</a>
-        <a href="size-guide.html">Size Guide</a>
+        <a href="size-guide.html" class="nav-link--active">Size Guide</a>
         <a href="#" id="footerReturnsBtn">Returns</a>
         <a href="#" id="footerSupportBtn">Concierge</a>
         <a href="admin.html" class="footer-admin-link">Staff Login</a>
@@ -302,7 +236,7 @@
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <span>Home</span>
     </a>
-    <a href="catalogue.html" class="bottom-nav-item active" aria-label="Collections">
+    <a href="catalogue.html" class="bottom-nav-item" aria-label="Collections">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       <span>Collections</span>
     </a>
@@ -321,5 +255,10 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="script.js"></script>
+  <script>
+    document.getElementById('sizeConciergeBtn')?.addEventListener('click', () => {
+      document.getElementById('fabSupportBtn')?.click();
+    });
+  </script>
 </body>
 </html>
