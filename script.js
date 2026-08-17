@@ -289,19 +289,6 @@ const openConcierge  = () => {
 };
 const closeConcierge = () => { state.conciergeOpen = false; $('conciergeModal')?.classList.remove('open'); $('conciergeModal')?.setAttribute('aria-hidden','true'); };
 
-/* ── CONCIERGE: OPEN WITH A TOPIC PRE-ASKED (e.g. Returns link) ── */
-const openConciergeWithTopic = (topicText) => {
-  openConcierge();
-  const qr = $('quickReplies');
-  if (qr) qr.style.display = 'none';
-  const body = $('conciergeBody');
-  // Avoid re-asking if this exact topic bubble is already the last message
-  const already = body && body.lastElementChild && body.lastElementChild.textContent === topicText;
-  if (!already) {
-    setTimeout(() => { appendBubble(topicText, 'user'); typeThenReply(findResponse(topicText)); }, 250);
-  }
-};
-
 /* ── CATALOGUE PAGE — TRACK BUILDER ─────────────────────── */
 const buildTracks = () => {
   ['executive','statement','essentials','finishing'].forEach(cat => {
@@ -444,9 +431,6 @@ const bindSharedEvents = () => {
   $('conciergeSendBtn')?.addEventListener('click', () => sendConciergeMsg($('conciergeInput')?.value || ''));
   $('conciergeInput')?.addEventListener('keydown', e => e.key === 'Enter' && (e.preventDefault(), sendConciergeMsg($('conciergeInput').value)));
   document.querySelectorAll('.quick-reply-btn').forEach(b => b.addEventListener('click', () => sendConciergeMsg(b.dataset.reply)));
-
-  // Returns footer link — opens concierge with the returns policy already asked
-  $('footerReturnsBtn')?.addEventListener('click', e => { e.preventDefault(); openConciergeWithTopic('What is your return policy?'); });
 
   // Keyboard escape
   document.addEventListener('keydown', e => {
