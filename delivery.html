@@ -9,24 +9,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-  <!-- ── HEADER ─────────────────────────────────────────────── -->
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-      <a href="index.html" class="logo" aria-label="Rotex Emporium">
+      <a href="index.html" class="logo" aria-label="Rotex Emporium home">
         <span class="logo-main">ROTEX</span>
         <span class="logo-sub">EMPORIUM</span>
       </a>
       <nav class="header-nav" aria-label="Primary">
-        <a href="index.html#hero"  class="nav-link">Maison</a>
-        <a href="catalogue.html"   class="nav-link">Collections</a>
-        <a href="#"                class="nav-link" id="headerSupportBtn">Help</a>
+        <a href="index.html#hero" class="nav-link">Maison</a>
+        <a href="catalogue.html" class="nav-link">Collections</a>
+        <a href="size-guide.html" class="nav-link">Size Guide</a>
+        <a href="delivery.html" class="nav-link nav-link--active">Delivery</a>
+        <button class="nav-link nav-link-btn" id="headerSupportBtn" type="button">Help</button>
       </nav>
       <button class="header-cart-btn" id="headerCartBtn" aria-label="Open cart">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -35,87 +36,101 @@
     </div>
   </header>
 
-  <!-- ── INFO PAGE HERO ─────────────────────────────────────── -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Site menu" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <span class="logo-main">ROTEX</span>
+      <button class="icon-btn" id="mobileMenuClose" aria-label="Close menu">✕</button>
+    </div>
+    <nav class="mobile-menu-nav" aria-label="Mobile">
+      <p class="mobile-menu-group">Shop</p>
+        <a href="index.html#hero" class="mobile-menu-link">Maison</a>
+        <a href="catalogue.html" class="mobile-menu-link">Collections</a>
+        <a href="size-guide.html" class="mobile-menu-link">Size Guide</a>
+        <a href="delivery.html" class="mobile-menu-link mobile-menu-link--active">Delivery</a>
+      <p class="mobile-menu-group">Help</p>
+      <button class="mobile-menu-link" id="mobileMenuReturnsBtn" type="button">Returns</button>
+      <button class="mobile-menu-link" id="mobileMenuSupportBtn" type="button">Chat with the Concierge</button>
+      <a class="mobile-menu-link" href="https://wa.me/254721696486?text=Hi%2C%20I%20need%20help%20with%20my%20Rotex%20order." target="_blank" rel="noopener noreferrer">WhatsApp us</a>
+    </nav>
+    <div class="mobile-menu-footer">Kimana Town, Kajiado South</div>
+  </aside>
+
   <section class="info-hero">
     <div class="info-hero-content">
       <p class="eyebrow gold">Getting Your Order to You</p>
       <h1 class="info-hero-title">Delivery Info</h1>
-      <p class="info-hero-desc">Straightforward delivery across Kenya, tracked from dispatch to doorstep.</p>
+      <p class="info-hero-desc">Shipped from our shop in Kimana Town, Kajiado South &mdash; to your door anywhere in Kenya, confirmed and tracked on WhatsApp.</p>
     </div>
   </section>
 
-  <!-- ── INFO CONTENT ────────────────────────────────────────── -->
   <main class="info-main">
-
     <div class="info-grid">
       <article class="info-card">
-        <div class="info-card-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h13v13H3z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="17.5" cy="18.5" r="1.5"/></svg>
-        </div>
+        <div class="info-card-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h13v13H3z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="17.5" cy="18.5" r="1.5"/></svg></div>
+        <h3 class="info-card-title">Kimana &amp; nearby</h3>
+        <p class="info-card-body">Kimana, Loitokitok, Emali, Amboseli and surrounding areas: same-day or next-day delivery. Free within Kimana Town.</p>
+      </article>
+      <article class="info-card">
+        <div class="info-card-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h3 class="info-card-title">Nairobi</h3>
-        <p class="info-card-body">1–2 business days. Same-day delivery available for orders confirmed before noon, subject to rider availability.</p>
+        <p class="info-card-body">1&ndash;2 business days by courier. Tracking details are sent on WhatsApp when your order is dispatched.</p>
       </article>
-
       <article class="info-card">
-        <div class="info-card-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
+        <div class="info-card-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h3 class="info-card-title">Rest of Kenya</h3>
-        <p class="info-card-body">2–4 business days via courier partner, including Oloitokitok and the greater Kajiado region. Tracking details sent on dispatch.</p>
+        <p class="info-card-body">2&ndash;4 business days via courier partner, to any town with courier service.</p>
       </article>
-
       <article class="info-card">
-        <div class="info-card-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        </div>
-        <h3 class="info-card-title">Delivery Cost</h3>
-        <p class="info-card-body">Free delivery within Nairobi. Countrywide rates are calculated at checkout confirmation on WhatsApp, based on your location.</p>
+        <div class="info-card-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <h3 class="info-card-title">Delivery cost</h3>
+        <p class="info-card-body">Free within Kimana Town. Elsewhere the fee depends on your location &mdash; we quote you on WhatsApp <em>before</em> you pay, so there are no surprises.</p>
       </article>
-
       <article class="info-card">
-        <div class="info-card-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        </div>
-        <h3 class="info-card-title">Order Tracking</h3>
-        <p class="info-card-body">Every order is confirmed and tracked directly over WhatsApp — the same chat you check out with is where you'll get updates.</p>
+        <div class="info-card-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <h3 class="info-card-title">Payment</h3>
+        <p class="info-card-body">M-Pesa, or pay on delivery within Kimana and nearby areas. Nothing is charged on this website.</p>
+      </article>
+      <article class="info-card">
+        <div class="info-card-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3 class="info-card-title">Order tracking</h3>
+        <p class="info-card-body">Every order is confirmed and tracked on WhatsApp &mdash; the same chat you check out with is where you get updates.</p>
       </article>
     </div>
 
     <div class="info-note">
-      <p>Questions about a specific delivery? Our concierge can help, or reach us directly on WhatsApp.</p>
+      <p>Prefer to collect? Come to the shop in Kimana Town during opening hours &mdash; tell us at checkout and we'll have it ready. Questions about a delivery? Ask the concierge or message us directly.</p>
       <div class="info-note-ctas">
         <button class="btn btn--ghost" id="deliveryConciergeBtn">Ask the Concierge</button>
         <a href="https://wa.me/254721696486?text=Hi%2C%20I%20have%20a%20question%20about%20delivery." class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
       </div>
     </div>
-
   </main>
 
-  <!-- ── BRAND STRIP ────────────────────────────────────────── -->
   <section class="brand-strip" aria-hidden="true">
     <p class="brand-quote">"Every piece is a<br /><em>considered choice.</em>"</p>
   </section>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────── -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
         <span class="logo-main">ROTEX</span>
-        <p class="footer-tagline">Ultra-Premium Fashion. Nairobi, Kenya.</p>
+        <p class="footer-tagline">Ultra-Premium Fashion. Kimana Town, Kajiado South, Kenya.</p>
       </div>
       <div class="footer-links">
+        <a href="index.html">Home</a>
         <a href="catalogue.html">Shop All</a>
         <a href="delivery.html" class="nav-link--active">Delivery Info</a>
         <a href="size-guide.html">Size Guide</a>
-        <a href="#" id="footerReturnsBtn">Returns</a>
-        <a href="#" id="footerSupportBtn">Concierge</a>
-        <a href="admin.html" class="footer-admin-link">Staff Login</a>
+        <button id="footerReturnsBtn" type="button">Returns</button>
+        <button id="footerSupportBtn" type="button">Concierge</button>
+        <a href="admin/admin.html" class="footer-admin-link">Staff Login</a>
       </div>
       <p class="footer-copy">© 2026 Rotex Emporium. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- ── SHARED: CART DRAWER ───────────────────────────────── -->
+  <!-- ── SHARED: CART DRAWER ─────────────────────────────── -->
   <div class="cart-overlay" id="cartOverlay"></div>
   <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Shopping cart" aria-hidden="true">
     <div class="cart-drawer-header">
@@ -139,7 +154,7 @@
     </div>
   </aside>
 
-  <!-- ── SHARED: CHECKOUT ──────────────────────────────────── -->
+  <!-- ── SHARED: CHECKOUT ────────────────────────────────── -->
   <div class="checkout-overlay" id="checkoutOverlay" role="dialog" aria-label="Checkout" aria-hidden="true">
     <div class="checkout-modal">
       <div class="checkout-modal-header">
@@ -155,7 +170,7 @@
         </div>
         <div class="form-group">
           <label class="form-label" for="customerLocation">Delivery Location</label>
-          <input class="form-input" type="text" id="customerLocation" placeholder="e.g. Westlands, Nairobi" autocomplete="street-address" required />
+          <input class="form-input" type="text" id="customerLocation" placeholder="e.g. Kimana Town, or your estate / town" autocomplete="street-address" required />
         </div>
         <div class="form-group">
           <label class="form-label" for="customerPhone">Phone Number</label>
@@ -166,12 +181,12 @@
           <textarea class="form-input form-textarea" id="customerNotes" placeholder="Special requests..."></textarea>
         </div>
         <button class="btn btn--primary btn--full btn--whatsapp" id="sendWhatsAppBtn">Send Order on WhatsApp</button>
-        <p class="checkout-disclaimer">You'll be redirected to WhatsApp to confirm. No payment required here.</p>
+        <p class="checkout-disclaimer">You'll be redirected to WhatsApp to confirm. No payment is taken on this site.</p>
       </div>
     </div>
   </div>
 
-  <!-- ── SHARED: AI CONCIERGE ──────────────────────────────── -->
+  <!-- ── SHARED: CONCIERGE ───────────────────────────────── -->
   <div class="concierge-overlay" id="conciergeOverlay"></div>
   <div class="concierge-modal" id="conciergeModal" role="dialog" aria-label="Rotex Concierge" aria-hidden="true">
     <div class="concierge-header">
@@ -185,12 +200,6 @@
       <button class="icon-btn" id="conciergeCloseBtn" aria-label="Close chat">✕</button>
     </div>
     <div class="concierge-body" id="conciergeBody" role="log" aria-live="polite"></div>
-    <div class="quick-replies" id="quickReplies">
-      <button class="quick-reply-btn" data-reply="What sizes do you carry?">Sizing</button>
-      <button class="quick-reply-btn" data-reply="How long does delivery take?">Delivery</button>
-      <button class="quick-reply-btn" data-reply="Do you accept M-Pesa?">Payment</button>
-      <button class="quick-reply-btn" data-reply="What is your return policy?">Returns</button>
-    </div>
     <div class="concierge-input-row">
       <input class="concierge-input" type="text" id="conciergeInput" placeholder="Ask anything..." aria-label="Type your message" />
       <button class="concierge-send-btn" id="conciergeSendBtn" aria-label="Send">
@@ -203,27 +212,18 @@
     </div>
   </div>
 
-  <!-- ── FABS ──────────────────────────────────────────────── -->
+  <!-- ── FABS ────────────────────────────────────────────── -->
   <div class="fab-group">
-    <button class="fab fab--support" id="fabSupportBtn" aria-label="Open concierge chat">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    </button>
+    <button class="fab fab--support" id="fabSupportBtn" aria-label="Open concierge chat"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>
     <button class="fab fab--cart" id="fabCartBtn" aria-label="Open cart">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
       <span class="fab-badge" id="fabCartBadge" data-count="0">0</span>
     </button>
   </div>
 
-  <!-- ── MOBILE BOTTOM NAV ──────────────────────────────────── -->
   <nav class="bottom-nav" id="bottomNav" aria-label="Mobile navigation">
-    <a href="index.html" class="bottom-nav-item" aria-label="Home">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <span>Home</span>
-    </a>
-    <a href="catalogue.html" class="bottom-nav-item" aria-label="Collections">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      <span>Collections</span>
-    </a>
+    <a href="index.html" class="bottom-nav-item" aria-label="Home"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Home</span></a>
+    <a href="catalogue.html" class="bottom-nav-item" aria-label="Collections"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><span>Collections</span></a>
     <button class="bottom-nav-item" id="bottomNavCartBtn" aria-label="Cart">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
       <span class="bottom-nav-badge" id="bottomNavBadge" data-count="0">0</span>
@@ -235,14 +235,11 @@
     </button>
   </nav>
 
-  <div class="toast" id="toast" role="status" aria-live="assertive" aria-atomic="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <script src="script.js"></script>
-  <script>
-    document.getElementById('deliveryConciergeBtn')?.addEventListener('click', () => {
-      document.getElementById('fabSupportBtn')?.click();
-    });
-  </script>
+  <script src="js/config.js"></script>
+  <script src="js/faq.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

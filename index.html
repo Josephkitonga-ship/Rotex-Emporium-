@@ -3,30 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Rotex Emporium — Ultra-Premium Luxury Fashion. Nairobi's definitive digital flagship." />
+  <meta name="description" content="Rotex Emporium — Ultra-Premium Luxury Fashion. Kimana Town, Kajiado South. Delivered across Kenya." />
   <meta name="theme-color" content="#0D0D0D" />
-  <title>Rotex Emporium</title>
+  <title>Rotex Emporium — Luxury Fashion, Kimana Town</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
+<body class="page--home">
 
-  <!-- ── HEADER ─────────────────────────────────────────────── -->
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-      <a href="index.html" class="logo" aria-label="Rotex Emporium">
+      <a href="index.html" class="logo" aria-label="Rotex Emporium home">
         <span class="logo-main">ROTEX</span>
         <span class="logo-sub">EMPORIUM</span>
       </a>
       <nav class="header-nav" aria-label="Primary">
-        <a href="#hero"       class="nav-link">Maison</a>
-        <a href="#categories" class="nav-link">Collections</a>
-        <a href="#"           class="nav-link" id="headerSupportBtn">Help</a>
+        <a href="#hero" class="nav-link nav-link--active">Maison</a>
+        <a href="catalogue.html" class="nav-link">Collections</a>
+        <a href="size-guide.html" class="nav-link">Size Guide</a>
+        <a href="delivery.html" class="nav-link">Delivery</a>
+        <button class="nav-link nav-link-btn" id="headerSupportBtn" type="button">Help</button>
       </nav>
       <button class="header-cart-btn" id="headerCartBtn" aria-label="Open cart">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -35,31 +36,78 @@
     </div>
   </header>
 
-  <!-- ── HERO ──────────────────────────────────────────────── -->
-  <section class="hero" id="hero" aria-label="Hero">
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Site menu" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <span class="logo-main">ROTEX</span>
+      <button class="icon-btn" id="mobileMenuClose" aria-label="Close menu">✕</button>
+    </div>
+    <nav class="mobile-menu-nav" aria-label="Mobile">
+      <p class="mobile-menu-group">Shop</p>
+        <a href="#hero" class="mobile-menu-link mobile-menu-link--active">Maison</a>
+        <a href="catalogue.html" class="mobile-menu-link">Collections</a>
+        <a href="size-guide.html" class="mobile-menu-link">Size Guide</a>
+        <a href="delivery.html" class="mobile-menu-link">Delivery</a>
+      <p class="mobile-menu-group">Help</p>
+      <button class="mobile-menu-link" id="mobileMenuReturnsBtn" type="button">Returns</button>
+      <button class="mobile-menu-link" id="mobileMenuSupportBtn" type="button">Chat with the Concierge</button>
+      <a class="mobile-menu-link" href="https://wa.me/254721696486?text=Hi%2C%20I%20need%20help%20with%20my%20Rotex%20order." target="_blank" rel="noopener noreferrer">WhatsApp us</a>
+    </nav>
+    <div class="mobile-menu-footer">Kimana Town, Kajiado South</div>
+  </aside>
+
+  <section class="hero" id="hero" aria-label="Rotex Emporium">
     <div class="hero-bg" aria-hidden="true">
       <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1400&q=85&auto=format&fit=crop" alt="" loading="eager" fetchpriority="high" />
       <div class="hero-overlay"></div>
     </div>
-    <div class="hero-content">
-      <p class="eyebrow gold">The 2025 Flagship Collection</p>
-      <h1 class="hero-title">
-        <span class="hero-title-large">ROTEX</span>
-        <span class="hero-title-styled">Dressed for<br /><em>distinction.</em></span>
-      </h1>
-      <p class="hero-sub">Four curated pillars of luxury, crafted for Nairobi's most discerning. Exclusive pieces. Uncompromising detail.</p>
-      <div class="hero-ctas">
-        <a href="catalogue.html" class="btn btn--primary">Explore the Collection</a>
-        <a href="#categories"    class="btn btn--ghost">View by Category</a>
+
+    <div class="hero-inner">
+      <!-- BRAND FIRST: the wordmark sits at the top of the hero, where the eye lands -->
+      <div class="hero-brand">
+        <p class="hero-est"><span class="hero-est-rule" aria-hidden="true"></span>Kimana Town &middot; Kajiado South<span class="hero-est-rule" aria-hidden="true"></span></p>
+        <h1 class="hero-wordmark" aria-label="Rotex Emporium">
+          <span class="hero-wordmark-main">ROTEX</span>
+          <span class="hero-wordmark-sub">EMPORIUM</span>
+        </h1>
+        <p class="hero-tagline">Dressed for <em>distinction.</em></p>
       </div>
+
+      <div class="hero-body">
+        <p class="hero-sub">Curated luxury fashion, brought to Kimana and delivered across Kenya. Sharp tailoring, statement pieces, premium essentials and the finishing touches that complete a look.</p>
+        <div class="hero-ctas">
+          <a href="catalogue.html" class="btn btn--primary">Explore the Collection</a>
+          <a href="#visit"         class="btn btn--ghost">Visit the Shop</a>
+        </div>
+      </div>
+
+      <!-- SHOP FACTS: who / where / when / how, visible without scrolling -->
+      <ul class="hero-facts" aria-label="Shop information">
+        <li class="hero-fact">
+          <span class="hero-fact-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="hero-fact-text"><strong>Find us</strong><span data-shop="town-area">Kimana Town, Kajiado South</span></span>
+        </li>
+        <li class="hero-fact">
+          <span class="hero-fact-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <span class="hero-fact-text"><strong>Open</strong><span data-shop="hours">Mon &ndash; Sat, 8am &ndash; 7pm</span></span>
+        </li>
+        <li class="hero-fact">
+          <span class="hero-fact-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h13v13H3z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="17.5" cy="18.5" r="1.5"/></svg></span>
+          <span class="hero-fact-text"><strong>Delivery</strong><span>Kimana &amp; all of Kenya</span></span>
+        </li>
+        <li class="hero-fact">
+          <span class="hero-fact-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+          <span class="hero-fact-text"><strong>Pay</strong><span>M-Pesa &amp; on delivery</span></span>
+        </li>
+      </ul>
     </div>
+
     <div class="hero-scroll-hint" aria-hidden="true">
       <span>Scroll</span>
       <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ── MARQUEE ────────────────────────────────────────────── -->
   <div class="marquee-strip" aria-hidden="true">
     <div class="marquee-track">
       <span>FREE DELIVERY IN NAIROBI</span><span class="dot">◆</span>
@@ -67,7 +115,6 @@
       <span>AUTHENTIC LUXURY PIECES</span><span class="dot">◆</span>
       <span>MPESA ACCEPTED</span><span class="dot">◆</span>
       <span>NEW SEASON ARRIVALS</span><span class="dot">◆</span>
-      <!-- duplicate for seamless loop -->
       <span>FREE DELIVERY IN NAIROBI</span><span class="dot">◆</span>
       <span>PAY ON DELIVERY AVAILABLE</span><span class="dot">◆</span>
       <span>AUTHENTIC LUXURY PIECES</span><span class="dot">◆</span>
@@ -76,7 +123,6 @@
     </div>
   </div>
 
-  <!-- ── CATEGORY PILLARS ───────────────────────────────────── -->
   <section class="categories-section" id="categories" aria-label="Shop by Category">
     <div class="categories-header">
       <p class="eyebrow crimson">The Four Pillars</p>
@@ -84,9 +130,9 @@
     </div>
     <div class="categories-grid">
 
-      <a href="catalogue.html?category=executive" class="category-card" aria-label="Executive & Smart-Casual">
+      <a href="catalogue.html?category=executive" class="category-card" aria-label="Executive and Smart-Casual">
         <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80&auto=format&fit=crop" alt="Executive & Smart-Casual" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80&auto=format&fit=crop" alt="Executive and Smart-Casual" loading="lazy" />
           <div class="card-overlay"></div>
         </div>
         <div class="card-content">
@@ -139,31 +185,70 @@
     </div>
   </section>
 
-  <!-- ── BRAND STRIP ────────────────────────────────────────── -->
+  <!-- ── VISIT THE SHOP ─────────────────────────────────────── -->
+  <section class="visit-section" id="visit" aria-labelledby="visit-title">
+    <div class="visit-inner">
+      <div class="visit-head">
+        <p class="eyebrow crimson">The Shop</p>
+        <h2 class="section-title" id="visit-title">Visit Rotex</h2>
+        <p class="visit-lede">Try pieces on, collect your order, or just come and see the collection in person. We're in the heart of Kimana Town.</p>
+        <div class="visit-ctas">
+          <a class="btn btn--primary" id="visitDirections" href="https://www.google.com/maps/search/?api=1&amp;query=Kimana%20Town%2C%20Kajiado%20County%2C%20Kenya" target="_blank" rel="noopener noreferrer">Get directions</a>
+          <a class="btn btn--whatsapp" id="visitWhatsApp" href="https://wa.me/254721696486?text=Hi%20Rotex%2C%20I%27d%20like%20to%20visit%20the%20shop." target="_blank" rel="noopener noreferrer">Message us</a>
+        </div>
+      </div>
+
+      <dl class="visit-grid">
+        <div class="visit-card">
+          <dt><span class="visit-card-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Address</dt>
+          <dd><span data-shop="town">Kimana Town</span><br><span data-shop="area">Kajiado South, Kajiado County</span><br><span data-shop="landmark"></span></dd>
+        </div>
+        <div class="visit-card">
+          <dt><span class="visit-card-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>Opening hours</dt>
+          <dd><span data-shop="hours">Mon &ndash; Sat, 8:00 am &ndash; 7:00 pm</span><br><span data-shop="hoursNote"></span></dd>
+        </div>
+        <div class="visit-card">
+          <dt><span class="visit-card-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>Call or WhatsApp</dt>
+          <dd><a id="visitPhone" href="tel:+254721696486"><span data-shop="phone">+254 721 696 486</span></a><br><span class="visit-muted">Replies fastest on WhatsApp</span></dd>
+        </div>
+        <div class="visit-card">
+          <dt><span class="visit-card-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h13v13H3z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="17.5" cy="18.5" r="1.5"/></svg></span>Delivery</dt>
+          <dd>Free within <span data-shop="deliveryFreeArea">Kimana Town</span>.<br>Rest of Kenya by courier &mdash; <a href="delivery.html">see delivery info</a>.</dd>
+        </div>
+      </dl>
+
+      <ul class="visit-promise" aria-label="Our promise">
+        <li><strong>Curated, not crowded.</strong> Every piece is chosen and checked before it's listed.</li>
+        <li><strong>Easy returns.</strong> <span data-shop="returnDays">7</span> days, unworn with tags. Exchanges are free.</li>
+        <li><strong>Talk to a person.</strong> Sizing, styling, availability &mdash; ask on WhatsApp or the Concierge.</li>
+      </ul>
+    </div>
+  </section>
+
   <section class="brand-strip" aria-hidden="true">
     <p class="brand-quote">"Every piece is a<br /><em>considered choice.</em>"</p>
   </section>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────── -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
         <span class="logo-main">ROTEX</span>
-        <p class="footer-tagline">Ultra-Premium Fashion. Nairobi, Kenya.</p>
+        <p class="footer-tagline">Ultra-Premium Fashion. Kimana Town, Kajiado South, Kenya.</p>
       </div>
       <div class="footer-links">
+        <a href="index.html" class="nav-link--active">Home</a>
         <a href="catalogue.html">Shop All</a>
         <a href="delivery.html">Delivery Info</a>
         <a href="size-guide.html">Size Guide</a>
-        <a href="#" id="footerReturnsBtn">Returns</a>
-        <a href="#" id="footerSupportBtn">Concierge</a>
-        <a href="admin.html" class="footer-admin-link">Staff Login</a>
+        <button id="footerReturnsBtn" type="button">Returns</button>
+        <button id="footerSupportBtn" type="button">Concierge</button>
+        <a href="admin/admin.html" class="footer-admin-link">Staff Login</a>
       </div>
-      <p class="footer-copy">© 2025 Rotex Emporium. All rights reserved.</p>
+      <p class="footer-copy">© 2026 Rotex Emporium. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- ── SHARED: CART DRAWER ───────────────────────────────── -->
+  <!-- ── SHARED: CART DRAWER ─────────────────────────────── -->
   <div class="cart-overlay" id="cartOverlay"></div>
   <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Shopping cart" aria-hidden="true">
     <div class="cart-drawer-header">
@@ -187,7 +272,7 @@
     </div>
   </aside>
 
-  <!-- ── SHARED: CHECKOUT ──────────────────────────────────── -->
+  <!-- ── SHARED: CHECKOUT ────────────────────────────────── -->
   <div class="checkout-overlay" id="checkoutOverlay" role="dialog" aria-label="Checkout" aria-hidden="true">
     <div class="checkout-modal">
       <div class="checkout-modal-header">
@@ -203,7 +288,7 @@
         </div>
         <div class="form-group">
           <label class="form-label" for="customerLocation">Delivery Location</label>
-          <input class="form-input" type="text" id="customerLocation" placeholder="e.g. Westlands, Nairobi" autocomplete="street-address" required />
+          <input class="form-input" type="text" id="customerLocation" placeholder="e.g. Kimana Town, or your estate / town" autocomplete="street-address" required />
         </div>
         <div class="form-group">
           <label class="form-label" for="customerPhone">Phone Number</label>
@@ -214,12 +299,12 @@
           <textarea class="form-input form-textarea" id="customerNotes" placeholder="Special requests..."></textarea>
         </div>
         <button class="btn btn--primary btn--full btn--whatsapp" id="sendWhatsAppBtn">Send Order on WhatsApp</button>
-        <p class="checkout-disclaimer">You'll be redirected to WhatsApp to confirm. No payment required here.</p>
+        <p class="checkout-disclaimer">You'll be redirected to WhatsApp to confirm. No payment is taken on this site.</p>
       </div>
     </div>
   </div>
 
-  <!-- ── SHARED: AI CONCIERGE ──────────────────────────────── -->
+  <!-- ── SHARED: CONCIERGE ───────────────────────────────── -->
   <div class="concierge-overlay" id="conciergeOverlay"></div>
   <div class="concierge-modal" id="conciergeModal" role="dialog" aria-label="Rotex Concierge" aria-hidden="true">
     <div class="concierge-header">
@@ -233,12 +318,6 @@
       <button class="icon-btn" id="conciergeCloseBtn" aria-label="Close chat">✕</button>
     </div>
     <div class="concierge-body" id="conciergeBody" role="log" aria-live="polite"></div>
-    <div class="quick-replies" id="quickReplies">
-      <button class="quick-reply-btn" data-reply="What sizes do you carry?">Sizing</button>
-      <button class="quick-reply-btn" data-reply="How long does delivery take?">Delivery</button>
-      <button class="quick-reply-btn" data-reply="Do you accept M-Pesa?">Payment</button>
-      <button class="quick-reply-btn" data-reply="What is your return policy?">Returns</button>
-    </div>
     <div class="concierge-input-row">
       <input class="concierge-input" type="text" id="conciergeInput" placeholder="Ask anything..." aria-label="Type your message" />
       <button class="concierge-send-btn" id="conciergeSendBtn" aria-label="Send">
@@ -251,27 +330,18 @@
     </div>
   </div>
 
-  <!-- ── FABS ──────────────────────────────────────────────── -->
+  <!-- ── FABS ────────────────────────────────────────────── -->
   <div class="fab-group">
-    <button class="fab fab--support" id="fabSupportBtn" aria-label="Open concierge chat">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    </button>
+    <button class="fab fab--support" id="fabSupportBtn" aria-label="Open concierge chat"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>
     <button class="fab fab--cart" id="fabCartBtn" aria-label="Open cart">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
       <span class="fab-badge" id="fabCartBadge" data-count="0">0</span>
     </button>
   </div>
 
-  <!-- ── MOBILE BOTTOM NAV ──────────────────────────────────── -->
   <nav class="bottom-nav" id="bottomNav" aria-label="Mobile navigation">
-    <a href="#hero"         class="bottom-nav-item active" aria-label="Home">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <span>Home</span>
-    </a>
-    <a href="catalogue.html" class="bottom-nav-item" aria-label="Collections">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      <span>Collections</span>
-    </a>
+    <a href="#hero" class="bottom-nav-item active" aria-label="Home"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Home</span></a>
+    <a href="catalogue.html" class="bottom-nav-item" aria-label="Collections"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><span>Collections</span></a>
     <button class="bottom-nav-item" id="bottomNavCartBtn" aria-label="Cart">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
       <span class="bottom-nav-badge" id="bottomNavBadge" data-count="0">0</span>
@@ -283,9 +353,11 @@
     </button>
   </nav>
 
-  <div class="toast" id="toast" role="status" aria-live="assertive" aria-atomic="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <script src="script.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/faq.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

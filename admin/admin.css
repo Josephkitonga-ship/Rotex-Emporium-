@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
-   ROTEX EMPORIUM — admin.css
-   Admin Dashboard Styles (extends styles.css tokens)
+   ROTEX EMPORIUM — admin/admin.css
+   Admin Dashboard Styles (extends ../css/styles.css tokens)
 ═══════════════════════════════════════════════════════════ */
 
 .admin-body { padding-bottom: 0; }
@@ -149,7 +149,7 @@
   border-radius: 4px;
   background: var(--surface-up);
 }
-.admin-table-actions { display: flex; gap: 8px; white-space: nowrap; }
+.admin-table-actions { display: flex; gap: 12px; white-space: nowrap; }
 .admin-table-link {
   font-size: .72rem;
   font-weight: 600;
@@ -204,6 +204,11 @@
 
 /* ── ITEMS SUMMARY CELL ──────────────────────────────────── */
 .order-items-cell { max-width: 260px; font-size: .74rem; color: var(--silver); line-height: 1.5; }
+
+/* ── ORDER EXTRAS: NOTES + STATUS PILL ───────────────────── */
+.order-notes { display:block; margin-top:4px; font-size:.68rem; color:var(--silver-dim); font-style:italic; }
+.order-contact { color: var(--silver); border-bottom: 1px dotted var(--silver-dim); }
+.order-contact:hover { color: var(--white); }
 
 @media (max-width: 767px) {
   .admin-header-inner { flex-wrap: wrap; }
